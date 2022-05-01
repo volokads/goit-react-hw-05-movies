@@ -13,7 +13,7 @@ const Cast = () => {
     
     useEffect(() => {
         // startTransition(() => { 
-            axios.get(`http://api.themoviedb.org/3/movie/${movieId}/credits?api_key=0cc59fcf1e5da911ea426bde22319681&language=en-US`)
+            axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=0cc59fcf1e5da911ea426bde22319681&language=en-US`)
                 .then(
                     response =>
                         // console.log(response)

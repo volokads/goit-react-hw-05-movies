@@ -15,7 +15,7 @@ const Reviews = () => {
 
     useEffect(() => {
         // startTransition(() => {
-            axios.get(`http://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=0cc59fcf1e5da911ea426bde22319681&language=en-US&page=1`)
+            axios.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=0cc59fcf1e5da911ea426bde22319681&language=en-US&page=1`)
                 .then(response =>
                     // console.log(response)
                     setMovie(response.data.results)
