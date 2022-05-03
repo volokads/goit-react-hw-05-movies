@@ -1,4 +1,5 @@
 import {
+    Suspense,
     useState, useEffect,
     // useTransition
 } from 'react'
@@ -28,7 +29,8 @@ const Cast = () => {
 //     });
 //   }, [query, startTransition]);
    return (
-        <>            
+       <>            
+            <Suspense fallback={<div>Loading...</div>}>
             {cast && (
             <ul>
               {cast.map(({ id, name,profile_path,character }) => (
@@ -41,7 +43,7 @@ const Cast = () => {
               ))}
             </ul>
           )}
-            
+            </Suspense>
         </>
     )
 }

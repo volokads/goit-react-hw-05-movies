@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
 import {
+    Suspense,
     // useTransition,
     useState, useEffect
 } from "react";
@@ -25,6 +26,7 @@ const Reviews = () => {
     
     return (
         <>
+            <Suspense fallback={<div>Loading...</div>}>
             {movie.length !== 0 ? (
             <ul>
               {movie.map(({ id, author, content }) => (
@@ -37,7 +39,8 @@ const Reviews = () => {
             </ul>
             ):(
             <p>We don`t have any reviews for this movie</p>
-          )}
+                )}
+                </Suspense>
         </>
     )
 };
