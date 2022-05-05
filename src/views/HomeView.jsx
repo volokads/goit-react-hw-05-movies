@@ -1,8 +1,5 @@
 import { Heading } from '../components/PageHeader/PageHeader.styled'
-import {
-    useState, useEffect,
-    // useTransition
-} from 'react'
+import {useState, useEffect,} from 'react'
 import * as filmsAPI from '../fetchAPI/films-api.js'
 import { Link, useLocation } from 'react-router-dom'
 
@@ -10,13 +7,10 @@ import { Link, useLocation } from 'react-router-dom'
 const HomeView = () => {
     const [movies, setMovies] = useState(null)
     const location = useLocation()
-    // const [isPending, startTransition] = useTransition()
 
     
     useEffect(() => {
-        // startTransition(() => { 
             filmsAPI.fetchTrending().then(setMovies)
-        // })
     }, [])
     
    

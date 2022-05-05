@@ -1,8 +1,4 @@
-import {
-    Suspense,
-    useState, useEffect,
-    // useTransition
-} from 'react'
+import {useState, useEffect,} from 'react'
 import {useParams} from 'react-router-dom'
 import axios from 'axios'
 
@@ -10,27 +6,17 @@ const Cast = () => {
     
     const { movieId } = useParams()
     const [cast, setCast] = useState(null)
-    // const [isPending, startTransition] = useTransition()
     
     useEffect(() => {
-        // startTransition(() => { 
             axios.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=0cc59fcf1e5da911ea426bde22319681&language=en-US`)
                 .then(
                     response =>
-                        // console.log(response)
                         setCast(response.data.cast)
                 )
-        // })
     })
 
-//     useEffect(() => {
-//     startTransition(() => {
-//       applyFilter(query, setFilteredNode);
-//     });
-//   }, [query, startTransition]);
    return (
        <>            
-            <Suspense fallback={<div>Loading...</div>}>
             {cast && (
             <ul>
               {cast.map(({ id, name,profile_path,character }) => (
@@ -43,7 +29,6 @@ const Cast = () => {
               ))}
             </ul>
           )}
-            </Suspense>
         </>
     )
 }

@@ -1,8 +1,5 @@
 import { NavLink, Outlet, useParams , useNavigate, useLocation} from 'react-router-dom';
-import {
-    // useTransition,
-    useState, useEffect
-} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 
 const MovieDetailsPage = () => {
@@ -10,7 +7,6 @@ const MovieDetailsPage = () => {
     const [movie, setMovie] = useState(null)
     const navigate = useNavigate() 
     const location = useLocation()
-    // const [isPending, startTransition] = useTransition()
 
 
     const goBack = () => navigate(
@@ -20,10 +16,8 @@ const MovieDetailsPage = () => {
     )
 
     useEffect(() => {
-        // startTransition(() => {
             axios.get(`https://api.themoviedb.org/3/movie/${movieId}?api_key=0cc59fcf1e5da911ea426bde22319681&language=en-US`)
                 .then(response => setMovie(response.data))
-        // })
     }, [movieId])
 
     return (
