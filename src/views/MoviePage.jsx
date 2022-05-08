@@ -19,7 +19,7 @@ const MoviePage = () => {
     }
 
     useEffect(() => {
-            if (!searchQuery) {
+            if (!searchQuery && ' ') {
                 return
             }
             axios.get(`https://api.themoviedb.org/3/search/movie?api_key=0cc59fcf1e5da911ea426bde22319681&language=en-US&query=${searchQuery}&page=1&include_adult=true`)
