@@ -14,7 +14,7 @@ const Reviews = () => {
                 .then(response =>
                     setMovie(response.data.results)
                 )
-    })
+    }, [movieId])
     
     return (
         <>

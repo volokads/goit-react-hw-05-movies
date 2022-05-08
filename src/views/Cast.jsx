@@ -13,7 +13,7 @@ const Cast = () => {
                     response =>
                         setCast(response.data.cast)
                 )
-    })
+    },[movieId])
 
    return (
        <>            
